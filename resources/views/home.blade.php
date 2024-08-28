@@ -28,7 +28,7 @@
                         <div class="card">
                             <img src="{{ asset($prod->foto) }}" class="card-img-top"/>
                             <div class="card-body">
-                                <h6 class="cart-title">{{ $prod->nome}} - {{ $prod->valor}}</h6>
+                                <h6 class="cart-title">{{ $prod->nome}} - R${{ $prod->valor}}</h6>
                                 <a href="#" class="btn btn-secondary">Adicionar Item</a>
                             </div>
                         </div>

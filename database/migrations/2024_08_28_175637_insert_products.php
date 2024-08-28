@@ -14,11 +14,17 @@ return new class extends Migration
         $cat = new \App\Models\Categoria(['categoria' => 'Geral']);
         $cat->save();
 
+        $cat2 = new \App\Models\Categoria(['categoria' => 'Informatica']);
+        $cat2->save();
+
+        $cat3 = new \App\Models\Categoria(['categoria' => 'Eletronico']);
+        $cat3->save();
+
         $prod = new \App\Models\Produto(['nome' => 'Produto 1', 'valor' => 10, 'foto' => 'images/produto1.jpg', 
         'descricao' => '', 'categoria_id' => $cat->id]);
         $prod->save();
 
-        $prod2 = new \App\Models\Produto(['nome' => 'Produto 2', 'valor' => 10, 'foto' => 'images/produto2.jpg', 
+        $prod2 = new \App\Models\Produto(['nome' => 'Produto 2', 'valor' => 10, 'foto' => 'images/produto1.jpg', 
         'descricao' => '', 'categoria_id' => $cat->id]);
         $prod2->save();
 
