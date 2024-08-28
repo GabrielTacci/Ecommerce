@@ -22,35 +22,19 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-3 mb-3">
-                <div class="card">
-                    <img src="{{ asset('images/produto1.jpg') }}" class="card-img-top"/>
-                    <div class="card-body">
-                        <h6 class="cart-title">Produto 1</h6>
-                        <a href="#" class="btn btn-secondary">Adicionar Item</a>
+            @if(isset($lista))
+                @foreach($lista as $prod)
+                    <div class="col-3 mb-3">
+                        <div class="card">
+                            <img src="{{ asset($prod->foto) }}" class="card-img-top"/>
+                            <div class="card-body">
+                                <h6 class="cart-title">{{ $prod->nome}} - {{ $prod->valor}}</h6>
+                                <a href="#" class="btn btn-secondary">Adicionar Item</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="col-3 mb-3">
-                <div class="card">
-                    <img src="images/produto2.jpg"/>
-                    <div class="card-body">
-                        <h6 class="cart-title">Produto 2</h6>
-                        <a href="#" class="btn btn-secondary">Adicionar Item</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-3 mb-3">
-                <div class="card">
-                    <img src="{{ asset('images/produto1.jpg') }}" class="card-img-top"/>
-                    <div class="card-body">
-                        <h6 class="cart-title">Produto 3</h6>
-                        <a href="#" class="btn btn-secondary">Adicionar Item</a>
-                    </div>
-                </div>
-            </div>
+                @endforeach
+            @endif
         </div>
     </div>
     
