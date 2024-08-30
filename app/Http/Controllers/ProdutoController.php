@@ -62,9 +62,9 @@ public function adicionarCarrinho($idProduto = 0, Request $request){
 
     public function verCarrinho(Request $request){
         $carrinho = session('cart',[]);
+        $data = ['cart' => $carrinho];
 
-        dd($carrinho);
-
+        return view("carrinho",$data);
     }
 
     
