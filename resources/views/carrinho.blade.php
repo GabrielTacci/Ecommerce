@@ -16,17 +16,17 @@
             </tr>
         </thead>
         <tbody>
-        @foreach($cart as $p)
+        @foreach($cart as $indice => $p)
                 <tr>
                     <td>
-                        <a href="#" class="btn btn-danger btn-sm">
+                        <a href="{{ route('excluir_carrinho', ['indice' => $indice]) }}" class="btn btn-danger btn-sm">
                             <i class="fa fa-trash"></i> 
                         </a>
                     </td>
                     <td>{{( $p->nome )}}</td>
                     <td><img src="{{ asset($p->foto )}}" height="50" /></td>
-                    <td><>{{( $p->valor )}}</td>
-                    <td>{{( $p->descricao )}}</td>
+                    <td>R${{( $p->valor )}}</td>
+                    <td>ITM BRABO{{( $p->descricao )}}</td>
 
                 </tr>
             @endforeach
