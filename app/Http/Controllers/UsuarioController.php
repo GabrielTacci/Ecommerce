@@ -27,4 +27,11 @@ class UsuarioController extends Controller
 
         return  view("logar", $data);
     }
+
+    public function sair(Request $request){
+
+        Auth::logout();
+        return redirect()->route('home');
+
+    }
 }

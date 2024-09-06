@@ -1,3 +1,9 @@
+@if(\Auth::check())
+    <p>Autenticado como: {{ \Auth::user()->nome }}</p>
+@else
+    <p>Nenhum usuário autenticado</p>
+@endif
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +22,11 @@
             <a class="nav-link" href="{{ route('home')}}">HOME</a>
                 <a class="nav-link" href="{{ route('categoria')}}">Categorias</a>
                 <a class="nav-link" href="{{ route('cadastrar')}}">Cadastrar</a>
+                @if(!\Auth::user())
                 <a class="nav-link" href="{{ route('logar')}}">Logar</a>
+                @else
+                <a class="nav-link" href="{{ route('sair')}}">Logout</a>
+                @endif
 
              </div>
         </div>
@@ -25,6 +35,13 @@
 
     <div class="container">
         <div class="row">
+
+            @if(\Auth::user())
+                <div class="col-12">
+                    <p class="text-right">Seja Bem-Vindo, {{ \Auth::user()->nome}}, <a href="{{ route('sair')}}">Sair</a></p>
+                </div>
+            @endif
+
             @if($message = Session::get("erro"))
                 <div class="col-12">
                         <div class="alert alert-danger">{{ $message }}</div>
